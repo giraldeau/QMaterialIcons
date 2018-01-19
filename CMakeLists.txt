@@ -8,7 +8,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 include (GNUInstallDirs)
 
 # Find Qt
-find_package(Qt5 COMPONENTS Widgets Gui REQUIRED)
+find_package(Qt4 4.8 REQUIRED QtGui)
 
 # Instruct CMake to run moc automatically when needed.
 set(CMAKE_AUTOMOC ON)
@@ -41,7 +41,7 @@ add_library(qmaterialicons
     src/qmaterialicons.cpp
     src/font.qrc
 )
-target_link_libraries(qmaterialicons PUBLIC Qt5::Gui)
+target_link_libraries(qmaterialicons PUBLIC Qt4::QtGui)
 target_include_directories(qmaterialicons PUBLIC
     $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src>
     $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
@@ -58,7 +58,7 @@ if(ENABLE_SAMPLES)
         sample/main.cpp
         sample/mainwindow.cpp
     )
-    target_link_libraries(Sample Qt5::Widgets qmaterialicons)
+    target_link_libraries(Sample Qt4::QtGui qmaterialicons)
 endif()
 
 # Installation
