@@ -1,0 +1,11 @@
+prefix=@CMAKE_INSTALL_PREFIX@
+exec_prefix=${prefix}
+libdir=${prefix}/@CMAKE_INSTALL_LIBDIR@
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+Name: @PACKAGE_NAME@
+Description: Material Icons for Qt
+Version: @PACKAGE_VERSION@
+Libs: -L${libdir} -lqmaterialicons
+Cflags: -I${includedir}
+Requires: Qt5Gui >= 5.6
